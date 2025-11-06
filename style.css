@@ -1,0 +1,541 @@
+﻿/* --- IMPORTAR FUENTES --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@700&family=Playfair+Display:wght@700;800&display=swap');
+
+/* --- PALETA DE COLORES (BASADA EN EL PDF) --- */
+:root {
+    --color-fondo: #2B2B2B; /*  */
+    --color-fondo-sec: #3a3a3a; /* Un gris un poco más claro para tarjetas */
+    --color-texto: #FFFFFF; /* [cite: 1, 2, 3] */
+    --color-texto-sec: #FFF1E6; /* Crema del logo  */
+    --color-acento-rojo: #E63946; /*  */
+    --color-acento-rosa: #FFCDB2; /*  */
+
+    --fuente-logo: 'Playfair Display', serif;
+    --fuente-titulos: 'Oswald', sans-serif; /* Para WAFFLES, FRESAS, etc. */
+    --fuente-cuerpo: 'Montserrat', sans-serif;
+}
+
+/* --- ESTILOS GENERALES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuente-cuerpo);
+    background-color: var(--color-fondo); /*  */
+    color: var(--color-texto); /* [cite: 1, 2, 3] */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* --- Estilos para la imagen QR en Contacto --- */
+.qr-code-item {
+    flex-direction: column; /* Para que el texto y la imagen estén uno debajo del otro */
+    align-items: flex-start; /* Alinea el contenido a la izquierda */
+    margin-top: 2rem;
+}
+
+    .qr-code-item strong {
+        margin-bottom: 1rem; /* Espacio entre el texto y la imagen QR */
+        color: var(--color-acento-rojo); /* El texto de "Escanea y síguenos" en rojo */
+    }
+
+    .qr-code-item .qr-image {
+        width: 150px; /* Tamaño del QR. Puedes ajustarlo */
+        height: auto;
+        border: 5px solid var(--color-texto); /* Un borde blanco al QR */
+        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease;
+    }
+
+        .qr-code-item .qr-image:hover {
+            transform: scale(1.05); /* Ligeramente más grande al pasar el ratón */
+        }
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .qr-code-item {
+        align-items: center; /* Centra el QR en móviles */
+    }
+}
+
+/* --- Botón de Instagram (Página de Contacto) --- */
+.btn-insta {
+    display: inline-block;
+    background-color: var(--color-acento-rojo); /* Fondo rojo */
+    color: var(--color-texto); /* Texto blanco */
+    padding: 0.6rem 1.3rem; /* Tamaño del botón (un poco más pequeño que el principal) */
+    border-radius: 50px; /* Forma de píldora */
+    font-weight: 700;
+    font-size: 0.9rem; /* Texto un poco más pequeño */
+    text-decoration: none; /* Quita el subrayado */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+    .btn-insta:hover {
+        background-color: #d02c3a; /* Rojo más oscuro al pasar el ratón */
+        transform: translateY(-2px); /* Efecto de "levantarse" */
+        color: var(--color-texto); /* Asegura que el texto siga blanco */
+    }
+
+/* --- TÍTULOS --- */
+h1, h2, h3 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-texto); /* [cite: 1, 2, 15] */
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-family: var(--fuente-logo);
+    font-size: 3.5rem;
+    text-transform: none;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--color-acento-rojo); /*  */
+    margin-top: 2rem;
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: var(--color-texto-sec); /*  */
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-acento-rojo); /* Enlaces en rojo */
+    font-weight: 700;
+}
+
+/* --- NAVEGACIÓN (HEADER) --- */
+header {
+    background-color: var(--color-fondo);
+    padding: 0.75rem 1.5rem; /* <- PADDING AJUSTADO */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(230, 57, 70, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+    /* --- Estilos para el Logo (Imagen + Texto) --- */
+    header .logo {
+        display: flex; /* Pone la imagen y el texto uno al lado del otro */
+        align-items: center; /* Centra verticalmente */
+        text-decoration: none; /* Quita cualquier subrayado del enlace */
+    }
+
+        /* 1. La imagen del logo (circular) */
+        header .logo .logo-img {
+            height: 70px; /* <- MUCHO MÁS GRANDE */
+            width: 70px; /* <- MUCHO MÁS GRANDE */
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--color-acento-rosa);
+            margin-right: 0.75rem;
+        }
+
+        /* 2. El texto del logo (como estaba antes) */
+        header .logo .logo-text {
+            font-family: var(--fuente-logo);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--color-texto);
+            line-height: 1; /* Asegura que el texto no sea demasiado alto */
+        }
+
+            /* 3. El punto rojo */
+            header .logo .logo-text .dot {
+                color: var(--color-acento-rojo);
+            }
+      
+
+    header nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+    }
+
+        header nav ul li a {
+            font-weight: 700;
+            color: var(--color-texto); /* [cite: 1, 2] */
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+            header nav ul li a:hover,
+            header nav ul li a.active {
+                color: var(--color-acento-rojo); /*  */
+            }
+
+/* --- Botón de Menú Móvil (Hamburguesa) --- */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-texto); /*  */
+}
+
+/* --- BOTÓN PRINCIPAL --- */
+.btn {
+    display: inline-block;
+    background-color: var(--color-acento-rojo); /*  */
+    color: var(--color-texto); /*  */
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+    .btn:hover {
+        background-color: #d02c3a;
+        transform: translateY(-3px);
+    }
+
+/* --- FOOTER --- */
+footer {
+    background-color: #111;
+    color: var(--color-texto-sec); /*  */
+    text-align: center;
+    padding: 3rem 1.5rem;
+    margin-top: 4rem;
+}
+
+    footer p {
+        margin: 0.5rem 0;
+        color: var(--color-texto-sec); /*  */
+    }
+
+    footer a {
+        color: var(--color-acento-rojo); /*  */
+    }
+
+/* =================================== */
+/* --- PÁGINA: INICIO (INDEX.HTML) --- */
+/* =================================== */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80vh;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+    .hero-text .subtitulo {
+        font-family: var(--fuente-titulos);
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--color-acento-rojo); /*  */
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-text h1 {
+        margin-bottom: 1.5rem;
+        color: var(--color-texto); /*  */
+    }
+
+    .hero-text p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+.hero-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+    .hero-image img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+/* =================================== */
+/* --- PÁGINA: MENÚ (MENU.HTML) --- */
+/* =================================== */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* --- NUEVA TARJETA DEL MENÚ (CON IMAGEN) --- */
+.menu-card {
+    background-color: var(--color-fondo-sec);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 1px solid #444;
+    overflow: hidden; /* Clave para el zoom de la imagen */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 1. Contenedor de la Imagen */
+.menu-card-image-container {
+    height: 220px; /* Altura fija para la imagen */
+    width: 100%;
+    overflow: hidden; /* Esconde el zoom que se desborda */
+}
+
+    .menu-card-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Asegura que la imagen llene el espacio */
+        transition: transform 0.4s ease; /* Transición para el zoom */
+    }
+
+/* 2. Contenido de la Tarjeta (Texto) */
+.menu-card-content {
+    padding: 1.5rem; /* El padding ahora va aquí */
+}
+
+.menu-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px dashed var(--color-acento-rojo);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.menu-card h3 {
+    color: var(--color-texto);
+    margin-bottom: 0;
+    transition: color 0.3s ease; /* Transición para el cambio de color */
+}
+
+.menu-card .price {
+    font-family: var(--fuente-cuerpo);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-texto);
+}
+
+.menu-card p {
+    font-size: 0.9rem;
+    color: var(--color-texto-sec);
+    min-height: auto; /* Ya no necesitamos altura mínima */
+}
+
+/* --- NUEVA INTERACTIVIDAD --- */
+.menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(230, 57, 70, 0.2); /* Sombra roja */
+}
+
+    .menu-card:hover .menu-card-image-container img {
+        transform: scale(1.1); /* Efecto de zoom a la imagen */
+    }
+
+    .menu-card:hover h3 {
+        color: var(--color-acento-rojo); /* Título se pone rojo */
+    }
+
+/* ... (El CSS de .extras-grid déjalo como estaba) ... */
+/* --- SECCIÓN DE EXTRAS (TOPPINGS/BASES) --- */
+.extras-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 1rem;
+    background-color: var(--color-fondo-sec);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #444;
+}
+
+.extras-column h3 {
+    font-size: 1.5rem;
+    color: var(--color-acento-rojo); /*  */
+    margin-bottom: 1rem;
+}
+
+.extras-column ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.extras-column li {
+    color: var(--color-texto); /* [cite: 30, 31, 32, 33, 34] */
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+    .extras-column li::before {
+        content: '•';
+        color: var(--color-acento-rojo); /* Viñeta roja  */
+        font-size: 1.5rem;
+        line-height: 1;
+        margin-right: 0.75rem;
+    }
+
+
+/* =================================== */
+/* --- PÁGINA: GALERÍA (GALERIA.HTML) --- */
+/* =================================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    background-color: var(--color-fondo-sec);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #444;
+}
+
+    .gallery-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(230, 57, 70, 0.2); /* Sombra roja */
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+    }
+
+/* =================================== */
+/* --- PÁGINA: CONTACTO (CONTACTO.HTML) --- */
+/* =================================== */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.contact-info ul {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.contact-info li {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    color: var(--color-texto-sec); /*  */
+}
+
+    .contact-info li strong {
+        color: var(--color-acento-rojo); /*  */
+        margin-right: 0.5rem;
+        min-width: 90px;
+    }
+
+.map-container {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    height: 450px;
+    border: 1px solid #444;
+}
+
+    .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        /* Se quitó el filtro cian */
+    }
+
+/* =================================== */
+/* --- RESPONSIVE (MÓVILES) --- */
+/* =================================== */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    header nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #111;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        padding: 1rem;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+    }
+
+        header nav ul.active {
+            display: flex;
+        }
+
+        header nav ul li {
+            padding: 0.5rem 0;
+            text-align: center;
+        }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 2rem 0;
+        text-align: center;
+    }
+
+    .hero-text {
+        order: 2;
+    }
+
+    .hero-image {
+        order: 1;
+        margin-bottom: 2rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .extras-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
