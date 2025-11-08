@@ -268,10 +268,13 @@ footer {
         margin-bottom: 2rem;
     }
 
-.hero-image {
-    flex: 1;
-    min-width: 300px;
-    text-align: center;
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    height: 450px; /* <- AÑADIDO: Le damos una altura fija */
+    object-fit: cover; /* <- AÑADIDO: Recorta la imagen para que quepa sin deformarse */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
     .hero-image img {
