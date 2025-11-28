@@ -277,12 +277,7 @@ footer {
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-    .hero-image img {
-        width: 100%;
-        max-width: 500px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
+   
 
 /* =================================== */
 /* --- PÁGINA: MENÚ (MENU.HTML) --- */
@@ -540,5 +535,10 @@ footer {
     .extras-grid {
         grid-template-columns: 1fr;
     }
-
+    .hero-image img {
+        height: 250px; /* Hace la imagen más chica en celular */
+        max-width: 80%; /* Reduce el ancho */
+        margin: 0 auto; /* La centra */
+        object-fit: cover;
+    }
 }
